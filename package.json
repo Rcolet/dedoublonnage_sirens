@@ -1,0 +1,11 @@
+{
+    "name": "siren",
+    "main": "server.js",
+    "dependencies": {
+        "ejs": "^2.7.1",
+        "express": "^4.17.1"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}
