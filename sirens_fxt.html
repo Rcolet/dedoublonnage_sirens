@@ -1,0 +1,86 @@
+<!-- sirens_fxt.html -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Coucou</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+      /*Mise en forme de la liste des SIRENs unique*/
+      .unique {
+        color: rgb(11, 146, 72);
+        background: #cce5ff;
+        margin: 5px;
+      }
+
+      /*Mise en forme du tableau des statistiques*/
+      #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #customers tr:hover {background-color: #ddd;}
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Dédoublonnage de SIRENs</h1>
+      <p>Voici un aperçu amélioré de la <a href="http://corporama.com/carabistouilles/sirens_fxt.html">page suivante</a> d'après <a href="http://corporama.com/carabistouilles/sirens.html">cet énoncé</a></p>
+    </header>
+    <main>
+        <table id="customers">
+            <tr>
+              <th>Nombre de SIRENs unique (dessiné en vert sur fond bleu)</th>
+              <th>Nombre de SIRENS non unique</th>
+            </tr>
+            <tr id="sirens_table">
+            </tr>
+          </table>
+        <ul id="list_sirens">
+        </ul>
+    </main>
+    <script>
+      //Va chercher les informations
+      $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:7777/",
+        dataType: "json",
+        success: function(response) {
+          //affichage des statistiques
+          let items = [];
+          items.push($('<td/>').text(response.unique));
+          items.push($('<td/>').text(response.multiple));
+          $('#sirens_table').append.apply($('#sirens_table'), items);
+
+          //Mise en place de la listes des SIRENs sans doublon
+          items = [];
+          $.each(response.sirens_tab, (value, index) => {
+            if(index == 1)
+              items.push($('<li/>').text(value).addClass('unique'));
+            else
+              items.push($('<li/>').text(`${value} (${index})`).addClass('multiple'));
+          })
+          $('#list_sirens').append.apply($('#list_sirens'), items);
+        }
+      })
+    </script>
+  </body>
+</html>
