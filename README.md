@@ -40,7 +40,7 @@ Pour ce faire, j'ai suivi au mieux les instructions. J'ai donc utilisé de l'Aja
 
 ## Exécution
 
-Pour commencer, cloner ou télécharger le repo.
+Pour commencer, [cloner](https://github.com/Rcolet/dedoublonnage_sirens.git) ou [télécharger](https://codeload.github.com/Rcolet/dedoublonnage_sirens/zip/master) le repo.
 
 ### Back
 
