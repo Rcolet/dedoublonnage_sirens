@@ -65,3 +65,11 @@ Voilà :) Vous avez dès à présent le serveur lancer sur le port 7777. Essayé
 ### Front
 
 Si tout se passe bien du coté Back, vous n'avez qu'à ouvrir le fichier "sirens_fxt.html" sur un navigateur est c'est finis :) Vous aurez le résultat final de mon exercice ^^
+
+### Test Unitaire
+
+Pour exécuter les test unitaire, mettez la commande suivante :
+
+```Bash
+> npm test
+```
