@@ -12,7 +12,7 @@ describe('dedupe', () => {
         it('return 0 in multiple attribut', () => {
             assert.equal(0, dedupe('test/file-test2.txt').multiple);
         }),
-        it('return 10 in multiple unique', () => {
+        it('return 10 in unique attribut', () => {
             assert.equal(10, dedupe('test/file-test2.txt').unique);
         })
     }),
@@ -20,7 +20,7 @@ describe('dedupe', () => {
         it('return 3 in multiple attribut', () => {
             assert.equal(3, dedupe('test/file-test3.txt').multiple);
         }),
-        it('return 7 in multiple unique', () => {
+        it('return 7 in unique attribut', () => {
             assert.equal(7, dedupe('test/file-test3.txt').unique);
         })
     })
